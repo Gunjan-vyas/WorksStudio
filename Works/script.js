@@ -37,7 +37,7 @@ const loco = () => {
     smooth: true,
   });
 
-  document.querySelector("#footer h2").addEventListener("click", () => {
+  document.querySelector("#backToTop").addEventListener("click", () => {
     scroll.scrollTo(0);
   });
   var page2 = document.querySelector("#page2");
