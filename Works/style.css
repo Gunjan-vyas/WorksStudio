@@ -58,7 +58,7 @@ body {
 }
 
 #nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   /* background-color: red; */
   padding: 30px 50px;
