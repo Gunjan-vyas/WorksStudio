@@ -191,7 +191,8 @@ body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2rem;
+  /* gap: 2rem; */
+  justify-content: space-between;
 }
 
 .img-div {
@@ -259,7 +260,7 @@ body {
 }
 #backToTop h2 {
   text-transform: uppercase;
-  font-size: 1vw;
+  font-size: clamp(1rem, 1.4vw, 10rem);
   cursor: pointer;
   margin-bottom: 40px;
 }
@@ -267,4 +268,40 @@ body {
   height: 50%;
   width: 100%;
   background-color: #000000;
+}
+
+@media screen and (max-width: 600px) {
+  #loader h1,
+  #page1 h1 {
+    font-size: 10vw;
+    line-height: 8vw;
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+  #nav {
+    padding-inline: 20px;
+  }
+  .elem h2 {
+    font-size: 10vw;
+  }
+  #nav svg {
+    width: 20vw;
+    height: 5vw;
+  }
+  #page2 {
+    margin-top: 20px;
+    justify-content: space-around;
+  }
+  .img-div {
+    width: calc(100vw - 40px);
+    height: 80vh !important;
+    margin: 20px 20px;
+  }
+  .img-container {
+    padding: 0;
+  }
+  .overlay p {
+    font-size: 8vw;
+    line-height: 8vw;
+  }
 }
