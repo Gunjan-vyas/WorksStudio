@@ -7,19 +7,27 @@ function loading() {
     ease: "expo.out",
   });
 
-  t1.from("#yellow2", {
-    top: "100%",
-    delay: 0.6,
-    duration: 0.6,
-    ease: "expo.out",
-  },"anim");
+  t1.from(
+    "#yellow2",
+    {
+      top: "100%",
+      delay: 0.6,
+      duration: 0.6,
+      ease: "expo.out",
+    },
+    "anim"
+  );
 
   // to make two things work together giving "anim"
-  t1.to("#loader h1", {
-    delay: 0.6,
-    duration: 0.6,
-    color: "black",
-  },"anim");
+  t1.to(
+    "#loader h1",
+    {
+      delay: 0.6,
+      duration: 0.6,
+      color: "black",
+    },
+    "anim"
+  );
 
   t1.to("#loader", {
     display: "none",
@@ -49,6 +57,18 @@ const loco = () => {
       // page2.style.background = "red";
     });
   });
+
+  // changing nav color when page2 is inview, using locomotive js
+  scroll.on("scroll", (value, way, obj) => {
+    console.log("value", value, "way", way, "obj", obj);
+    if (value.scroll.y >= 880 && value.scroll.y <= 1760) changeColorTo("#ffffff");
+    else changeColorTo("#000000");
+  });
+
+  function changeColorTo(givenColor) {
+    let svg = document.querySelector("#nav svg path");
+    svg.style.fill = givenColor;
+  }
 };
 loco();
 
@@ -70,22 +90,3 @@ loco();
 
 // scrollToTriggerNavColorChange();
 
-// changing nav color when page2 is inview, using locomotive js
-const locoNavChangeColor = () => {
-  const scroller = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
-    smooth: true,
-  });
-
-  scroller.on("scroll", (value, way, obj) => {
-    console.log("value", value, "way", way, "obj", obj);
-    if (value.scroll.y >= 880 && value.scroll.y <= 1760) changeColorTo("#ffffff");
-    else changeColorTo("#000000");
-  });
-
-  function changeColorTo(givenColor) {
-    let svg = document.querySelector("#nav svg path");
-    svg.style.fill = givenColor;
-  }
-};
-locoNavChangeColor();
